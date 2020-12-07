@@ -3,7 +3,6 @@ Parameterize and execute a notebook
 """
 import argparse
 from pathlib import Path
-from string import ascii_lowercase
 from runpy import run_path
 
 import yaml
@@ -43,7 +42,6 @@ def main():
     nbin = Path(args.template)
     parameters = _parse_parameters(args.parameters)
     nbout = nbin.parent / Path(args.parameters).stem / nbin.name.replace("-template", "")
-
     nbout.parent.mkdir(exist_ok=args.overwrite, parents=True)
     parameters["HERE"] = str(nbout.parent.resolve())
     pm.execute_notebook(nbin, nbout, parameters)
