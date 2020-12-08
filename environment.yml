@@ -36,5 +36,7 @@ dependencies:
       - torch-spline-conv
       # PyTorch trees
       - https://github.com/ValentinFigue/Sklearn_PyTorch/archive/1b56a43e41de331ecdf73d08418f75bb34c9fa06.tar.gz
+      # Latest kinoml
+      - https://github.com/openkinome/kinoml/archive/api.tar.gz
 ### After creating the environment, you will need to run these this to enable jupyter-lab widgets
 # jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc
