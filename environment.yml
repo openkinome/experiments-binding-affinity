@@ -12,7 +12,7 @@ dependencies:
   - requests
   - pint
   - appdirs
-  - openforcefield
+  - openforcefield >=0.8.1
   - tqdm
   - pytorch 1.6
   - torchvision
@@ -35,7 +35,5 @@ dependencies:
       - torch_sparse
       - torch_cluster
       - torch_spline_conv
-
-### After creating the environment, you will need to run these two commands to override lastest OFF with a dev version
-# conda remove --force openforcefield
-# pip install --no-deps https://github.com/openforcefield/openforcefield/archive/76571d2fccba227a80cb5477669d96d38f1ad6af.zip
+### After creating the environment, you will need to run these this to enable jupyter-lab widgets
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc
