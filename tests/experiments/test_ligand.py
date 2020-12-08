@@ -1,6 +1,6 @@
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 NPZ_FILES = [
-    "ligand-only-morgan512/_output/ligand__SmilesToLigandFeaturizer_style=rdkit__MorganFingerprintFeaturizer_nbits=512_radius=2/PKIS2DatasetProvider/*.npz",
+    "test_ligand/_output/**/*.npz",
 ]
 
 # Model -- specified with the full import path to the class object
