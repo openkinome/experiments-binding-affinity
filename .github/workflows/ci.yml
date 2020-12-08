@@ -61,7 +61,8 @@ jobs:
       - name: Run ligand pipeline
         shell: bash -l {0}
         run: |
+          set -x
           cp tests/features/test_ligand.py features/
           python run_notebook.py features/featurize-template.ipynb features/test_ligand.py
           cp tests/experiments/test_ligand.py experiments/
-          python run_notebook.py features/torch-train-test-debug-template.ipynb experiments/test_ligand.py
+          python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/test_ligand.py
