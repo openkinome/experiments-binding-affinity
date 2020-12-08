@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 from runpy import run_path
 
-import yaml
+from ruamel import yaml
 import papermill as pm
 
 
