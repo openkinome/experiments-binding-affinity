@@ -64,5 +64,10 @@ jobs:
           set -x
           cp tests/features/test_ligand.py features/
           python run_notebook.py features/featurize-template.ipynb features/test_ligand.py
+          test -f features/test_ligand/featurize.ipynb
+          test -d features/test_ligand/_output/
+
           cp tests/experiments/test_ligand.py experiments/
           python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/test_ligand.py
+          test -f experiments/test_ligand/torch-train-test-debug.ipynb
+          test -d experiments/test_ligand/_output/
