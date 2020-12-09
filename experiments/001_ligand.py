@@ -5,7 +5,7 @@ NPZ_FILES = [
 
 # Model -- specified with the full import path to the class object
 MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
-MODEL_KWARGS = {"hidden_size": 350}  # input_size is defined dynamically during training
+MODEL_KWARGS = {"hidden_shape": 350}  # input_shape is defined dynamically during training
 WITH_OBSERVATION_MODEL = True
 
 # Adam
