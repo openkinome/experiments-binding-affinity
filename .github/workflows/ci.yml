@@ -53,7 +53,7 @@ jobs:
           ulimit -a
 
       - name: Fix dataclasses in Py36
-        if: matrix.cfg.python-version == "3.6"
+        if: matrix.cfg.python-version == '3.6'
         shell: bash -l {0}
         run: pip install dataclasses
 
