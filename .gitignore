@@ -139,6 +139,9 @@ cython_debug/
 
 .vscode/
 
+# MacOS
+.DS_Store
+
 ## Custom configuration
 # Do not commit outputs
 _output/
