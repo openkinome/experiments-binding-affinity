@@ -1,0 +1,43 @@
+name: experiments-binding-affinity
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+  - omnia
+dependencies:
+  # Base depends
+  - python
+  - pip
+  - pandas
+  - requests
+  - pint
+  - appdirs
+  - openforcefield >=0.8.1
+  - tqdm
+  - pytorch 1.6.* *cpu*
+  - torchvision 0.7.* *cpu*
+  - cpuonly  # replaces cudatoolkit 10.2.* in CI
+  - pytorch-lightning
+  - xgboost
+  - watermark
+  - papermill
+  - jupyterlab
+  - nglview
+  - matplotlib-base
+  - ruamel.yaml
+
+
+  - pip:
+      # Torch geometric
+      - --find-links https://pytorch-geometric.com/whl/torch-1.6.0+cpu.html
+      - torch-geometric
+      - torch-scatter
+      - torch-sparse
+      - torch-cluster
+      - torch-spline-conv
+      # PyTorch trees
+      - https://github.com/ValentinFigue/Sklearn_PyTorch/archive/1b56a43e41de331ecdf73d08418f75bb34c9fa06.tar.gz
+      # Latest kinoml
+      - https://github.com/openkinome/kinoml/archive/api.tar.gz
+### After creating the environment, you will need to run these this to enable jupyter-lab widgets
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc

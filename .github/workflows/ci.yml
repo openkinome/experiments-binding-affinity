@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+  schedule:
+    # Run a cron job once daily
+    - cron: "0 0 * * *"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.cfg.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        cfg:
+
+          - os: ubuntu-latest
+            python-version: "3.7"
+
+          - os: ubuntu-latest
+            python-version: "3.8"
+
+          - os: ubuntu-latest
+            python-version: "3.9"
+
+          - os: macOS-latest
+            python-version: "3.7"
+
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: ${{ matrix.cfg.python-version }}
+          activate-environment: experiments-binding-affinity
+          channel-priority: true
+          environment-file: environment.yml
+          auto-activate-base: false
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Run ligand pipeline
+        shell: bash -l {0}
+        run: |
+          set -x
+          cp tests/features/test_ligand.py features/
+          python run_notebook.py features/featurize-template.ipynb features/test_ligand.py
+          test -f features/test_ligand/featurize.ipynb
+          test -d features/test_ligand/_output/
+
+          cp tests/experiments/test_ligand.py experiments/
+          python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/test_ligand.py
+          test -f experiments/test_ligand/torch-train-test-debug.ipynb
+          test -d experiments/test_ligand/_output/
