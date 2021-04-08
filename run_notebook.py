@@ -44,7 +44,7 @@ def main():
     nbout = nbin.parent / Path(args.parameters).stem / nbin.name.replace("-template", "")
     nbout.parent.mkdir(exist_ok=args.overwrite, parents=True)
     parameters["HERE"] = str(nbout.parent.resolve())
-    pm.execute_notebook(nbin, nbout, parameters)
+    pm.execute_notebook(str(nbin), str(nbout), parameters)
 
 
 if __name__ == "__main__":
