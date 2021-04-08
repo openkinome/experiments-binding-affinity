@@ -1,7 +1,7 @@
 # You can only use UPPERCASE variables for the names
 # Values can ONLY be strings, numbers, lists (not tuples!) or dicts
 
-DATASET_CLS = "kinoml.datasets.kinomescan.pkis2.PKIS2DatasetProvider"
+DATASET_CLS = "kinoml.datasets.chembl.ChEMBLDatasetProvider"
 DATASET_KWARGS = {}
 
 PIPELINE = {
