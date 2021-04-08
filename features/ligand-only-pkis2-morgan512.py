@@ -4,14 +4,14 @@
 DATASET_CLS = "kinoml.datasets.chembl.ChEMBLDatasetProvider"
 DATASET_KWARGS = {}
 
-PIPELINE = {
+PIPELINES = {
     "ligand": [
-        ["kinoml.features.ligand.SmilesToLigandFeaturizer", {"style": "rdkit"}],
+        ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
         ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 512, "radius": 2}],
     ]
 }
-PIPELINE_AGG = "kinoml.features.core.Concatenated"
-PIPELINE_AGG_KWARGS = {}
+PIPELINES_AGG = "kinoml.features.core.Concatenated"
+PIPELINES_AGG_KWARGS = {}
 
 FEATURIZE_KWARGS = {"processes": 1}
 
