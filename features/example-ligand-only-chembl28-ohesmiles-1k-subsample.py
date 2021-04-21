@@ -13,12 +13,13 @@ DATASET_KWARGS = {
 PIPELINES = {
     "ligand": [
         ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
-        ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 512, "radius": 2}],
+        ["kinoml.features.ligand.OneHotSMILESFeaturizer", {}],
+        ["kinoml.features.core.PadFeaturizer", {"shape": "auto"}],
     ]
 }
+
 PIPELINES_AGG = "kinoml.features.core.Concatenated"
 PIPELINES_AGG_KWARGS = {}
-
 
 GROUPS = [
     [

@@ -1,3 +1,8 @@
+# ----
+# This input file is designed for experiments/torch-train-test-debug-template.ipynb
+# ----
+
+
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 NPZ_FILES = [
     "example-ligand-only-chembl28-morgan512-1k-subsample/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=512_radius=2/ChEMBLDatasetProvider/*.npz",
