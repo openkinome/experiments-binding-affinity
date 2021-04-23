@@ -18,12 +18,15 @@ dependencies:
   - nglview
   - matplotlib-base
   - ruamel.yaml
+  # cudatoolkit should match the default cuda version for torch below
+  # see https://pytorch.org/get-started/previous-versions/
+  # (the one with no -f https://download.pytorch.org/whl/torch_stable.html)
+  - cudatoolkit 10.2
 
   - pip:
       # Torch
-      - --find-links https://download.pytorch.org/whl/torch_stable.html
-      - torch==1.7.1+cpu
-      - torchvision==0.8.2+cpu
+      - torch==1.7.1
+      - torchvision==0.8.2
       - torchaudio==0.7.2
       # Torch geometric
       - --find-links https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html
