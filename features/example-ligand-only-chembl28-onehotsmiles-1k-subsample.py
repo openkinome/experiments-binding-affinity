@@ -6,7 +6,7 @@ DATASET_KWARGS = {
     "path_or_url": "https://github.com/openkinome/kinodata/releases/download/v0.2/activities-chembl28-sample100_v0.2.zip",
 }
 
-PIPELINE = {
+PIPELINES = {
     "ligand": [
         ["kinoml.features.ligand.SmilesToLigandFeaturizer", {"style": "rdkit"}],
         ["kinoml.features.ligand.OneHotSMILESFeaturizer", {}],
