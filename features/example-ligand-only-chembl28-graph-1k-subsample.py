@@ -2,12 +2,14 @@
 # Values can ONLY be strings, numbers, lists (not tuples!) or dicts
 
 DATASET_CLS = "kinoml.datasets.chembl.ChEMBLDatasetProvider"
-DATASET_KWARGS = {}
+DATASET_KWARGS = {
+    "path_or_url": "https://github.com/openkinome/kinodata/releases/download/v0.2/activities-chembl28-sample100_v0.2.zip",
+}
 
 PIPELINES = {
     "ligand": [
-        ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
-        ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 512, "radius": 2}],
+        ["kinoml.features.ligand.SmilesToLigandFeaturizer", {"style": "rdkit"}],
+        ["kinoml.features.ligand.GraphLigandFeaturizer", {}],
     ]
 }
 PIPELINES_AGG = "kinoml.features.core.Concatenated"
