@@ -53,16 +53,7 @@ jobs:
           conda info --all
           conda list
 
-      - name: Run ligand featurization
+      - name: Run examples
         shell: bash -l {0}
         run: |
-          python run_notebook.py features/featurize-template.ipynb features/example-ligand-only-chembl28-morgan512-1k-subsample.py --overwrite
-          test -f features/example-ligand-only-chembl28-morgan512-1k-subsample/featurize.ipynb
-          test -d features/example-ligand-only-chembl28-morgan512-1k-subsample/_output/
-
-      - name: Run ligand experiment
-        shell: bash -l {0}
-        run: |
-          python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/000_example-ligand-only-chembl28-subset.py  --overwrite
-          test -f experiments/000_example-ligand-only-chembl28-subset/torch-train-test-debug.ipynb
-          test -d experiments/000_example-ligand-only-chembl28-subset/_output/
+          bash tests/test_examples.sh
