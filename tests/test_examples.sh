@@ -16,8 +16,5 @@ python run_notebook.py features/featurize-template.ipynb features/example-ligand
 echo "Running training for '000_example-ligand-only-chembl28-subset'"
 python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/000_example-ligand-only-chembl28-subset.py --overwrite
 
-echo "Running training for '000_talias-ligand-only-chembl28-subset'"
-python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/000_talias-ligand-only-chembl28-subset.py --overwrite
-
 echo "Running training for '000_example-graph-chembl28-1k-subsample.py'"
 python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/000_example-graph-chembl28-1k-subsample.py --overwrite
