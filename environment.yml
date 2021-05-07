@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   # Base depends
-  - python >=3.7
+  - python >=3.7,<3.9
   - pip
   - pandas
   - requests
@@ -26,11 +26,11 @@ dependencies:
       - torchaudio==0.7.2
       # Torch geometric
       - --find-links https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html
-      - torch-geometric
       - torch-scatter
       - torch-sparse
       - torch-cluster
       - torch-spline-conv
+      - torch-geometric
       # Lightning
       - pytorch-lightning
       # PyTorch trees
