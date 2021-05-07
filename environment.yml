@@ -14,13 +14,13 @@ dependencies:
   - xgboost
   - watermark
   - papermill 2.2.*
-  - jupyterlab
+  - jupyterlab >=3
   - nglview
   - matplotlib-base
   - ruamel.yaml
 
   - pip:
-      # Torch
+      # Torch -- default is CUDA=10.2 on Linux, CPU on MacOS
       - torch==1.7.1
       - torchvision==0.8.2
       - torchaudio==0.7.2
@@ -39,6 +39,4 @@ dependencies:
       - prody==1.10.11
       # Latest kinoml
       - https://github.com/openkinome/kinoml/archive/master.tar.gz
-### After creating the environment, you will need to run these this to enable jupyter-lab widgets
-# conda install nodejs
-# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc
+
