@@ -1,7 +1,3 @@
-# ----
-# This input file is designed for features/featurize-template.ipynb
-# ----
-
 # You can only use UPPERCASE variables for the names
 # Values can ONLY be strings, numbers, lists (not tuples!) or dicts
 
@@ -13,18 +9,19 @@ DATASET_KWARGS = {
 PIPELINES = {
     "ligand": [
         ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
-        ["kinoml.features.ligand.GraphLigandFeaturizer", {}],
+        ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 1024, "radius": 2}],
+    ],
+    "kinase": [
+        ["kinoml.features.core.HashFeaturizer", {}],
     ]
+
 }
-PIPELINES_AGG = "kinoml.features.core.TupleOfArrays"
+PIPELINES_AGG = "kinoml.features.core.Concatenated"
 PIPELINES_AGG_KWARGS = {}
 
+FEATURIZE_KWARGS = {"processes": 1}
 
 GROUPS = [
-    [
-        "kinoml.datasets.groups.CallableGrouper",
-        {"function": "lambda measurement: measurement.system.protein.name"},
-    ],  # by kinase
     [
         "kinoml.datasets.groups.CallableGrouper",
         {"function": "lambda measurement: type(measurement).__name__"},

@@ -1,10 +1,15 @@
+# ----
+# This input file is designed for experiments/torch-train-test-debug-template.ipynb
+# ----
+
+
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 NPZ_FILES = [
-    "ligand-only-morgan1024/_output/ligand__SmilesToLigandFeaturizer_style=rdkit__MorganFingerprintFeaturizer_nbits=1024_radius=2/ChEMBLDatasetProvider/*.npz"
+    "example-ligand-only-chembl28-ohesmiles-1k-subsample/_output/ligand__SmilesToLigandFeaturizer__OneHotSMILESFeaturizer__PadFeaturizer_shape=auto/ChEMBLDatasetProvider/*.npz",
 ]
 
 # Model -- specified with the full import path to the class object
-MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
+MODEL_CLS = "kinoml.ml.torch_models.ConvolutionNeuralNetworkRegression"
 MODEL_KWARGS = {"hidden_shape": 350}  # input_shape is defined dynamically during training
 WITH_OBSERVATION_MODEL = True
 
@@ -18,7 +23,7 @@ MAX_EPOCHS = 50
 N_SPLITS = 5
 SHUFFLE_FOLDS = False
 VALIDATION = False  # TODO: VALIDATION=True is not implemented yet!
-MIN_ITEMS_PER_DATASET = 50  # skip datasets if len(data) < N
+MIN_ITEMS_PER_DATASET = 10  # skip datasets if len(data) < N
 
 # Bootstrapping
 N_BOOTSTRAPS = 1

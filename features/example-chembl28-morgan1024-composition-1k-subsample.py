@@ -9,10 +9,10 @@ DATASET_KWARGS = {
 PIPELINES = {
     "ligand": [
         ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
-        ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 512, "radius": 2}],
+        ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 1024, "radius": 2}],
     ],
     "kinase": [
-        ["kinoml.features.core.HashFeaturizer", {}],
+        ["kinoml.features.protein.AminoAcidCompositionFeaturizer", {}],
     ]
 
 }
