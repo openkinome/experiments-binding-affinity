@@ -7,13 +7,13 @@ echo "Model training"
 echo "Ligand only"
 
 echo "Running training for 'ligand-only-morgan1024-chembl28-subset'"
-# python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/ligand-only-morgan1024-chembl28-subset.py --overwrite
-
-echo "Running training for 'ligand-only-graph-chembl28-subset'"
-# python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/ligand-only-graph-chembl28-subset.py --overwrite
+python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/ligand-only-morgan1024-chembl28-subset.py --overwrite
 
 echo "Running training for 'ligand-only-onehotsmiles-chembl28-subset'"
-# python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/ligand-only-onehotsmiles-chembl28-subset.py --overwrite
+python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/ligand-only-onehotsmiles-chembl28-subset.py --overwrite
+
+echo "Running training for 'ligand-only-graph-chembl28-subset'"
+python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/ligand-only-graph-chembl28-subset.py --overwrite
 
 
 echo "Kinase informed"
