@@ -14,6 +14,7 @@ PIPELINES = {
     ],
     "kinase": [
         ["kinoml.features.protein.OneHotEncodedSequenceFeaturizer", {}],
+        ["kinoml.features.core.PadFeaturizer", {"shape": "auto"}]
     ]
 
 }
