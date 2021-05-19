@@ -4,15 +4,14 @@
 
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
-PARQUET_LOADER_CLS = "kinoml.datasets.torch_geometric_datasets.AwkwardArrayGeometricDataset"
+PARQUET_LOADER_CLS = "kinoml.datasets.torch_datasets.AwkwardArrayDataset"
 PARQUET_FILES = [
-    "example-graph-chembl28-1k-subsample/_output/ligand__SmilesToLigandFeaturizer__GraphLigandFeaturizer/ChEMBLDatasetProvider/*.parquet",
+    "composition-chembl28-morgan512/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=512_radius=2__kinase__AminoAcidCompositionFeaturizer/ChEMBLDatasetProvider/*.parquet",
 ]
 
 # Model -- specified with the full import path to the class object
-MODEL_CLS = "kinoml.ml.torch_geometric_models.GraphConvolutionNeuralNetwork"
-MODEL_KWARGS = {}
-
+MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
+MODEL_KWARGS = {"hidden_size": 350}  # input_shape is defined dynamically during training
 
 # OPTIMIZER
 OPTIMIZER = "torch.optim.Adam"
@@ -28,7 +27,7 @@ VALIDATION = True
 EARLY_STOPPING_KWARGS = {}
 
 # DATALOADER
-DATALOADER_CLS = "torch_geometric.data.DataLoader"
+DATALOADER_CLS = "torch.utils.data.DataLoader"
 BATCH_SIZE = 64
 TRAIN_TEST_SPLIT = 0.2
 SHUFFLE_SPLITS = True
