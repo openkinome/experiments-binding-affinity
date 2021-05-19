@@ -18,11 +18,21 @@ python run_notebook.py experiments/torch-train-test-debug-template.ipynb experim
 
 echo "Kinase informed"
 
+echo "Binding site"
+
+echo "Running training for 'ligand-morgan1024-kinase-klifscomposition-chembl28-subset'"
+python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-morgan1024-kinase-klifscomposition-chembl28-subset.py --overwrite
+
+echo "Running training for 'ligand-smiles-kinase-klifssequence-chembl28-subset'"
+python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-smiles-kinase-klifssequence-chembl28-subset.py --overwrite
+
+echo "Full sequence"
+
 echo "Running training for 'ligand-morgan1024-kinase-hash-chembl28-subset'"
-# python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-morgan1024-kinase-hash-chembl28-subset.py --overwrite
+python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-morgan1024-kinase-hash-chembl28-subset.py --overwrite
 
 echo "Running training for 'ligand-morgan1024-kinase-composition-chembl28-subset'"
-# python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-morgan1024-kinase-composition-chembl28-subset.py --overwrite
+python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-morgan1024-kinase-composition-chembl28-subset.py --overwrite
 
 echo "Running training for 'ligand-smiles-kinase-sequence-chembl28-subset'"
-# python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-smiles-kinase-sequence-chembl28-subset.py --overwrite
+python run_notebook.py experiments/torch-train-test-debug-kinase-informed.ipynb experiments/ligand-smiles-kinase-sequence-chembl28-subset.py --overwrite

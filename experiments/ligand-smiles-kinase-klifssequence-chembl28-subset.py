@@ -5,7 +5,7 @@
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 NPZ_FILES = [
-    "example-chembl28-smiles-sequence-1k-subsample/_output/ligand__SmilesToLigandFeaturizer_style=rdkit__OneHotSMILESFeaturizer__PadFeaturizer_shape=auto__kinase__OneHotEncodedSequenceFeaturizer__PadFeaturizer_shape=auto/ChEMBLDatasetProvider/*.npz",
+    "example-chembl28-smiles-sequence-1k-subsample/_output/.../ChEMBLDatasetProvider/*.npz",
 ]
 
 # Model -- specified with the full import path to the class object

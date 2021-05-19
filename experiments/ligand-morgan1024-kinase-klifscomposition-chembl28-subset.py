@@ -5,11 +5,11 @@
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 NPZ_FILES = [
-    "example-chembl28-smiles-sequence-1k-subsample/_output/ligand__SmilesToLigandFeaturizer_style=rdkit__OneHotSMILESFeaturizer__PadFeaturizer_shape=auto__kinase__OneHotEncodedSequenceFeaturizer__PadFeaturizer_shape=auto/ChEMBLDatasetProvider/*.npz",
+    "example-chembl28-morgan1024-klifscomposition-1k-subsample/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=1024_radius=2__kinase__KLIFSBindingSiteCompositionFeaturizer/ChEMBLDatasetProvider/*.npz",
 ]
 
 # Model -- specified with the full import path to the class object
-MODEL_CLS = "kinoml.ml.torch_models.ConvolutionNeuralNetworkRegressionKinaseInformed"
+MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
 MODEL_KWARGS = {"hidden_shape": 350}  # input_shape is defined dynamically during training
 WITH_OBSERVATION_MODEL = True
 
