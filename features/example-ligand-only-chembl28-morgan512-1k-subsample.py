@@ -16,15 +16,14 @@ PIPELINES = {
         ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 512, "radius": 2}],
     ]
 }
-PIPELINES_AGG = "kinoml.features.core.Concatenated"
+PIPELINES_AGG = "kinoml.features.core.TupleOfArrays"
 PIPELINES_AGG_KWARGS = {}
 
+# Use keep=False to reduce the memory usage to a minimum
+# Use keep=True if you want to debug the featurization steps
+FEATURIZE_KWARGS = {"processes": 1, "keep": False}
 
 GROUPS = [
-    [
-        "kinoml.datasets.groups.CallableGrouper",
-        {"function": "lambda measurement: measurement.system.protein.name"},
-    ],  # by kinase
     [
         "kinoml.datasets.groups.CallableGrouper",
         {"function": "lambda measurement: type(measurement).__name__"},
