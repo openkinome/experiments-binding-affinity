@@ -26,6 +26,10 @@ FEATURIZE_KWARGS = {"processes": 1, "keep": False}
 GROUPS = [
     [
         "kinoml.datasets.groups.CallableGrouper",
+        {"function": "lambda measurement: measurement.system.protein.name"},
+    ],  # by kinase
+    [
+        "kinoml.datasets.groups.CallableGrouper",
         {"function": "lambda measurement: type(measurement).__name__"},
     ],  # by measurement type
 ]
