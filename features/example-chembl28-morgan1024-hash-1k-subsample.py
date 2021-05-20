@@ -16,7 +16,7 @@ PIPELINES = {
     ]
 
 }
-PIPELINES_AGG = "kinoml.features.core.Concatenated"
+PIPELINES_AGG = "kinoml.features.core.TupleOfArrays"
 PIPELINES_AGG_KWARGS = {}
 
 FEATURIZE_KWARGS = {"processes": 1}
