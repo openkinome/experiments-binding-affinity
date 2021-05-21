@@ -5,11 +5,11 @@
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 PARQUET_FILES = [
-    "example-ligand-only-chembl28-morgan512-1k-subsample/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=512_radius=2/ChEMBLDatasetProvider/*.parquet",
+    "ligand-only-onehotsmiles-subsample/_output/ligand__SmilesToLigandFeaturizer__OneHotSMILESFeaturizer__PadFeaturizer_shape=auto/ChEMBLDatasetProvider/*.parquet",
 ]
 
 # Model -- specified with the full import path to the class object
-MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
+MODEL_CLS = "kinoml.ml.torch_models.ConvolutionNeuralNetworkRegression"
 MODEL_KWARGS = {"hidden_size": 350}  # input_shape is defined dynamically during training
 
 # OPTIMIZER
