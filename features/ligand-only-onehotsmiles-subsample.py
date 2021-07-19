@@ -18,7 +18,7 @@ PIPELINES = {
     ]
 }
 
-PIPELINES_AGG = PIPELINES_AGG = "kinoml.features.core.Concatenated"
+PIPELINES_AGG = "kinoml.features.core.Concatenated"
 
 PIPELINES_AGG_KWARGS = {}
 # Use keep=False to reduce the memory usage to a minimum
