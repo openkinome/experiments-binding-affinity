@@ -16,7 +16,7 @@ PIPELINES = {
         ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 1024, "radius": 2}],
     ]
 }
-# PIPELINES_AGG = "kinoml.features.core.Concatenated"
+
 PIPELINES_AGG = "kinoml.features.core.TupleOfArrays"
 PIPELINES_AGG_KWARGS = {}
 
