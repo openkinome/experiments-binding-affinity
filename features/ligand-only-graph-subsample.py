@@ -13,7 +13,7 @@ DATASET_KWARGS = {
 PIPELINES = {
     "ligand": [
         ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
-        ["kinoml.features.ligand.GraphFeaturizer", {}],
+        ["kinoml.features.ligand.GraphLigandFeaturizer", {}],
     ]
 }
 PIPELINES_AGG = "kinoml.features.core.TupleOfArrays"
