@@ -1,3 +1,5 @@
+[![CI](https://github.com/openkinome/experiments-binding-affinity/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/openkinome/experiments-binding-affinity/actions/workflows/ci.yml)
+
 # KinoML notebooks
 
 These repository contains detailed execution instructions for the notebooks used in our structure-informed machine learning experiments. We put special emphasis in reproducibility of results by carefully specifying every aspect of the running environment.
