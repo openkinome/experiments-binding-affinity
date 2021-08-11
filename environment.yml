@@ -19,6 +19,7 @@ dependencies:
   - matplotlib-base
   - ruamel.yaml
   - awkward
+  - pyarrow
 
   - pip:
       # Torch
