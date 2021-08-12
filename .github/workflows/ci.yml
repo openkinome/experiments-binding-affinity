@@ -41,6 +41,10 @@ jobs:
         run: |
           conda install -c conda-forge mamba
           mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
+
+      - name: Install KinoML
+        shell: bash
+        run: |
           pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
 
       - name: Additional info about the build
