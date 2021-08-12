@@ -37,7 +37,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           activate-environment: experiments-binding-affinity
           channel-priority: true
-          environment-url: https://github.com/openkinome/kinoml/blob/unite_yamls/devtools/conda-envs/test_env.yaml
+          environment-file: https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
           auto-activate-base: false
 
       - name: Additional info about the build
