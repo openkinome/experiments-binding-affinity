@@ -37,8 +37,12 @@ jobs:
           python-version: ${{ matrix.python-version }}
           activate-environment: experiments-binding-affinity
           channel-priority: true
-          environment-file: https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
           auto-activate-base: false
+
+      - name: Update environment from url
+        shell: bash
+        run: |
+          mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
       - name: Additional info about the build
         shell: bash
