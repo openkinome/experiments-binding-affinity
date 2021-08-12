@@ -44,8 +44,9 @@ jobs:
 
       - name: Install KinoML
         shell: bash
-        run:
-          pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
+        run: | 
+          which python
+          python -m pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
 
       - name: Additional info about the build
         shell: bash
