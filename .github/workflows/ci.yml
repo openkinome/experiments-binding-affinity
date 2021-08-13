@@ -34,6 +34,10 @@ jobs:
             os: macOS-latest
             python-version: "3.7"
             conda-installer: https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh
+    
+    env:
+      OE_LICENSE: ${{ github.workspace }}/oe_license.txt
+      MODELLER_LICENSE: ${{ secrets.MODELLER_LICENSE }}
 
     steps:
       - uses: actions/checkout@v2
@@ -69,6 +73,14 @@ jobs:
         run: |
           conda info --all
           conda list
+
+      - name: Decrypt and check OE license
+        shell: bash -l {0}
+        env:
+          OE_LICENSE_TEXT: ${{ secrets.OE_LICENSE }}
+        run: |
+          echo "${OE_LICENSE_TEXT}" > ${OE_LICENSE}
+          python -c "import openeye; assert openeye.OEChemIsLicensed()"
 
       - name: Run examples
         shell: bash -l {0}
