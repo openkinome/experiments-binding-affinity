@@ -37,20 +37,22 @@ jobs:
           auto-activate-base: false
 
       - name: Update environment from url
-        shell: bash
+        shell: bash -l {0}
         run: |
           which python
+          conda env list
           conda install -c conda-forge mamba
           mamba env update -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
       - name: Install KinoML
-        shell: bash
+        shell: bash -l {0}
         run: | 
           which python
+          conda env list
           python -m pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
 
       - name: Additional info about the build
-        shell: bash
+        shell: bash -l {0}
         run: |
           uname -a
           df -h
