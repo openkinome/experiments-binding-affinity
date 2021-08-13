@@ -39,6 +39,7 @@ jobs:
       - name: Update environment from url
         shell: bash
         run: |
+          which python
           conda install -c conda-forge mamba
           mamba env update -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
