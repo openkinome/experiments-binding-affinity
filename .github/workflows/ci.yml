@@ -37,7 +37,7 @@ jobs:
           auto-activate-base: false
 
       - name: Update environment from url
-        shell:
+        shell: bash
         run: |
           conda install -c conda-forge mamba
           mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
