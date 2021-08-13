@@ -23,6 +23,9 @@ jobs:
           - os: ubuntu-latest
             python-version: "3.7"
 
+          - os: ubuntu-latest
+            python-version: "3.9"
+
           - os: macOS-latest
             python-version: "3.7"
 
@@ -35,11 +38,12 @@ jobs:
           activate-environment: experiments-binding-affinity
           channel-priority: true
           auto-activate-base: false
+          use-mamba: true
 
       - name: Update environment from url
         shell: bash
-        run: |
-          conda install -c conda-forge mamba
+        run:
+          # conda install -c conda-forge mamba
           mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
       - name: Install KinoML
@@ -58,7 +62,6 @@ jobs:
         shell: bash -l {0}
         run: |
           conda info --all
-          conda env list
           conda list
 
       - name: Run examples
