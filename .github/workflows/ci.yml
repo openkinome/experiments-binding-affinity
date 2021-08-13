@@ -42,7 +42,7 @@ jobs:
           which python
           conda env list
           conda install -c conda-forge mamba
-          mamba env update -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
+          mamba env update -n test -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
       - name: Install KinoML
         shell: bash -l {0}
