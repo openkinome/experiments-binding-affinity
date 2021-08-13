@@ -39,7 +39,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           activate-environment: test
-          environment-file: ../test_env.yaml
+          environment-file: /~/test_env.yaml
           channel-priority: true
           auto-activate-base: false
 
