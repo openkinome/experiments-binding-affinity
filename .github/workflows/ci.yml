@@ -32,7 +32,7 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.python-version }}
-          activate-environment: experiments-binding-affinity
+          activate-environment: test
           channel-priority: true
           auto-activate-base: false
 
@@ -40,12 +40,11 @@ jobs:
         shell: bash
         run: |
           conda install -c conda-forge mamba
-          mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
+          mamba env update -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
       - name: Install KinoML
         shell: bash
         run: | 
-          source activate experiments-binding-affinity
           which python
           python -m pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
 
