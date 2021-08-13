@@ -20,23 +20,28 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
+          - name: Linux, Python 3.7
+            os: ubuntu-latest
             python-version: "3.7"
+            conda-installer: https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
 
-          - os: ubuntu-latest
+          - name: Linux, Python 3.9
+            os: ubuntu-latest
             python-version: "3.9"
+            conda-installer: https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
 
-          - os: macOS-latest
+          - name: MacOS, Python 3.7
+            os: macOS-latest
             python-version: "3.7"
+            conda-installer: https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: conda-incubator/setup-miniconda@v2
         with:
+          installer-url: ${{ matrix.conda-installer }}
           python-version: ${{ matrix.python-version }}
-          mamba-version: "*"
-          channels: conda-forge,defaults
           activate-environment: experiments-binding-affinity
           channel-priority: true
           auto-activate-base: false
@@ -45,7 +50,6 @@ jobs:
       - name: Update environment from url
         shell: bash
         run:
-          # conda install -c conda-forge mamba
           mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
 
       - name: Install KinoML
