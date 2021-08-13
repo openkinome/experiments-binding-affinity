@@ -45,7 +45,7 @@ jobs:
       - name: Install KinoML
         shell: bash
         run: | 
-          conda activate experiments-binding-affinity
+          source activate experiments-binding-affinity
           which python
           python -m pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
 
