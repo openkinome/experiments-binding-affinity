@@ -29,11 +29,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Download yaml from KinoML
+        shell: bash -l {0}
+        run:
+          wget https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
+
+
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.python-version }}
           activate-environment: test
-          environment-file: https://raw.githubusercontent.com/openkinome/kinoml/unite_yamls/devtools/conda-envs/test_env.yaml
+          environment-file: ../test_env.yaml
           channel-priority: true
           auto-activate-base: false
 
