@@ -3,7 +3,7 @@
 
 DATASET_CLS = "kinoml.datasets.chembl.ChEMBLDatasetProvider"
 DATASET_KWARGS = {
-    "path_or_url": "https://github.com/openkinome/kinodata/releases/download/v0.2/activities-chembl28_v0.2.zip"
+    "path_or_url": "https://github.com/openkinome/kinodata/releases/download/v0.2/activities-chembl28-sample100_v0.2.zip"
 }
 
 PIPELINES = {
@@ -22,7 +22,7 @@ PIPELINES_AGG_KWARGS = {}
 
 # Use keep=False to reduce the memory usage to a minimum
 # Use keep=True if you want to debug the featurization steps
-FEATURIZE_KWARGS = {"processes": 1, "keep": False}
+FEATURIZE_KWARGS = {"keep": False}
 
 GROUPS = [
     [
