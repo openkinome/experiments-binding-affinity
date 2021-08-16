@@ -53,7 +53,7 @@ jobs:
           conda info --all
           conda list
 
-      - name: Run examples
+      - name: Run examples - ligand featurization
         shell: bash -l {0}
         run: |
-          bash tests/test_examples.sh
+          bash tests/features/test_featurization_ligand_only.sh
