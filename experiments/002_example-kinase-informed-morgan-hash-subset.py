@@ -5,7 +5,7 @@
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 PARQUET_FILES = [
-    "../ChEMBLDatasetProvider/*.parquet",
+    "kinase-informed-morgan1024-hash-subsample/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=1024_radius=2__kinase__HashFeaturizer/ChEMBLDatasetProvider/*.parquet",
 ]
 
 # Model -- specified with the full import path to the class object
