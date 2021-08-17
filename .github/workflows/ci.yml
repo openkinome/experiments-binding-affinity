@@ -62,3 +62,13 @@ jobs:
         shell: bash -l {0}
         run: |
           bash tests/features/test_featurization_kinase_informed.sh
+
+      - name: Run examples - ligand-based models
+        shell: bash -l {0}
+        run: |
+          bash tests/experiments/test_model_ligand_only.sh
+
+      - name: Run examples - kinase-informed models
+        shell: bash -l {0}
+        run: |
+          bash tests/experiments/test_model_kinase_informed.sh
