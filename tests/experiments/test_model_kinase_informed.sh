@@ -14,4 +14,4 @@ python run_notebook.py experiments/torch-train-test-debug-template.ipynb experim
 
 # echo "Running model for '002_example-kinase-informed-smiles-sequence-subset'"
 # python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/002_example-kinase-informed-smiles-sequence-subset.py --overwrite
-# fix with input estimate in kinoml
+# fix with input estimate in kinoml 
