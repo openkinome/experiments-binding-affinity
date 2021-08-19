@@ -12,5 +12,5 @@ python run_notebook.py experiments/torch-train-test-debug-template.ipynb experim
 echo "Running model for '001_example-ligand-only-smiles-subset.py'"
 python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/001_example-ligand-only-smiles-subset.py --overwrite
 
-echo "Running model for '001_example-ligand-only-graph-subset'"
-python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/001_example-ligand-only-graph-subset.py --overwrite
+# echo "Running model for '001_example-ligand-only-graph-subset'"
+# python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/001_example-ligand-only-graph-subset.py --overwrite
