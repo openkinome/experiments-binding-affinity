@@ -35,7 +35,7 @@ jobs:
             os: macOS-latest
             python-version: "3.7"
             conda-installer: https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh
-    
+
     env:
       OE_LICENSE: ${{ github.workspace }}/oe_license.txt
       MODELLER_LICENSE: ${{ secrets.MODELLER_LICENSE }}
@@ -83,7 +83,22 @@ jobs:
           echo "${OE_LICENSE_TEXT}" > ${OE_LICENSE}
           python -c "import openeye; assert openeye.OEChemIsLicensed()"
 
-      - name: Run examples
+      - name: Run examples - ligand featurization
         shell: bash -l {0}
         run: |
-          bash tests/test_examples.sh
+          bash tests/features/test_featurization_ligand_only.sh
+
+      - name: Run examples - kinase-informed featurization
+        shell: bash -l {0}
+        run: |
+          bash tests/features/test_featurization_kinase_informed.sh
+
+      - name: Run examples - ligand-based models
+        shell: bash -l {0}
+        run: |
+          bash tests/experiments/test_model_ligand_only.sh
+
+      - name: Run examples - kinase-informed models
+        shell: bash -l {0}
+        run: |
+          bash tests/experiments/test_model_kinase_informed.sh
