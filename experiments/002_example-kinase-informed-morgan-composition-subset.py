@@ -10,7 +10,7 @@ PARQUET_FILES = [
 ]
 
 # Model -- specified with the full import path to the class object
-MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
+MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegressionProteinInformed"
 MODEL_KWARGS = {"hidden_shape": 350}  # input_shape is defined dynamically during training
 
 # OPTIMIZER
