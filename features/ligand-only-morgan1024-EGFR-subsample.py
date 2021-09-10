@@ -7,15 +7,19 @@
 
 DATASET_CLS = "kinoml.datasets.chembl.ChEMBLDatasetProvider"
 DATASET_KWARGS = {
-    "path_or_url": "https://github.com/openkinome/kinodata/releases/download/v0.2/activities-chembl28-sample100_v0.2.zip",
+    "path_or_url": "https://github.com/openkinome/kinodata/releases/download/v0.3/EGFR-activities-chembl29-sample.zip",
 }
 
 PIPELINES = {
     "ligand": [
         ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
-        ["kinoml.features.ligand.GraphLigandFeaturizer", {}],
+        [
+            "kinoml.features.ligand.MorganFingerprintFeaturizer",
+            {"nbits": 1024, "radius": 2},
+        ],
     ]
 }
+
 PIPELINES_AGG = "kinoml.features.core.TupleOfArrays"
 PIPELINES_AGG_KWARGS = {}
 
@@ -24,10 +28,6 @@ PIPELINES_AGG_KWARGS = {}
 FEATURIZE_KWARGS = {"keep": False}
 
 GROUPS = [
-    [
-        "kinoml.datasets.groups.CallableGrouper",
-        {"function": "lambda measurement: measurement.system.protein.name"},
-    ],  # by kinase
     [
         "kinoml.datasets.groups.CallableGrouper",
         {"function": "lambda measurement: type(measurement).__name__"},

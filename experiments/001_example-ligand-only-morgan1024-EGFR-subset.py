@@ -5,13 +5,14 @@
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 PARQUET_FILES = [
-    "ligand-only-graph-subsample/_output/ligand__SmilesToLigandFeaturizer__GraphLigandFeaturizer/ChEMBLDatasetProvider/*.parquet",
+    "ligand-only-morgan1024-EGFR-subsample/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=1024_radius=2/ChEMBLDatasetProvider/*.parquet",
 ]
 
 # Model -- specified with the full import path to the class object
-MODEL_CLS = "kinoml.ml.torch_geometric_models.GraphConvolutionNeuralNetwork"
-MODEL_KWARGS = {}
-
+MODEL_CLS = "kinoml.ml.torch_models.NeuralNetworkRegression"
+MODEL_KWARGS = {
+    "hidden_shape": 350
+}  # input_shape is defined dynamically during training
 
 # OPTIMIZER
 OPTIMIZER = "torch.optim.Adam"
@@ -27,7 +28,7 @@ VALIDATION = True
 EARLY_STOPPING_KWARGS = {}
 
 # DATALOADER
-DATALOADER_CLS = "torch_geometric.data.DataLoader"
+DATALOADER_CLS = "torch.utils.data.DataLoader"
 BATCH_SIZE = 64
 TRAIN_TEST_SPLIT = 0.2
 SHUFFLE_SPLITS = True
