@@ -5,7 +5,7 @@
 
 # DATA -- Glob paths must be relative to the root of the repository: REPO / features
 PARQUET_FILES = [
-    "ligand-only-morgan1024-subsample/_output/ligand__SmilesToLigandFeaturizer__MorganFingerprintFeaturizer_nbits=1024_radius=2/ChEMBLDatasetProvider/*.parquet",
+    "ligand-only-morgan1024-subsample/_output/ligand__MorganFingerprintFeaturizer_nbits=1024_radius=2/ChEMBLDatasetProvider/*.parquet",
 ]
 
 # Model -- specified with the full import path to the class object
