@@ -12,7 +12,6 @@ DATASET_KWARGS = {
 
 PIPELINES = {
     "ligand": [
-        ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
         ["kinoml.features.ligand.OneHotSMILESFeaturizer", {}],
         ["kinoml.features.core.PadFeaturizer", {"shape": "auto"}],
     ]

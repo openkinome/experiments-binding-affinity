@@ -12,7 +12,6 @@ DATASET_KWARGS = {
 
 PIPELINES = {
     "ligand": [
-        ["kinoml.features.ligand.SmilesToLigandFeaturizer", {}],
         ["kinoml.features.ligand.MorganFingerprintFeaturizer", {"nbits": 1024, "radius": 2}],
     ]
 }
