@@ -55,12 +55,12 @@ jobs:
       - name: Update environment from url
         shell: bash
         run:
-          mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/master/devtools/conda-envs/test_env.yaml
+          mamba env update -n experiments-binding-affinity -f https://raw.githubusercontent.com/openkinome/kinoml/object_model/devtools/conda-envs/test_env.yaml
 
       - name: Install KinoML
         shell: bash -l {0}
         run:
-          python -m pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
+          python -m pip install https://github.com/openkinome/kinoml/archive/object_model.tar.gz
 
       - name: Additional info about the build
         shell: bash -l {0}
