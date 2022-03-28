@@ -2,7 +2,7 @@
 
 # KinoML notebooks
 
-These repository contains detailed execution instructions for the notebooks used in our structure-informed machine learning experiments. We put special emphasis in reproducibility of results by carefully specifying every aspect of the running environment.
+This repository contains detailed execution instructions for the notebooks used in our structure-informed machine learning experiments. We put special emphasis in reproducibility of results by carefully specifying every aspect of the running environment.
 
 **Some history hygiene details**
 
@@ -26,3 +26,41 @@ We split an _experiment_ in four stages:
 4. Evaluation. Using the models from step 3, produce reports of performance of a test set. Test set does not have to be part of the same collection used in training; it can be a different collection entirely, as long as the featurized tensors are compatible (e.g. test ChEMBL data on PKIS2). Outputs include test scores.
 
 Since featurized vectors can be reused across models, we do not implement a linear hierarchy that implies such a dependency. Instead, we use metadata to annotate each artifact and identify whether a certain stage is compatible with another, across experiments.
+
+## Getting started
+
+A functional environment needs a proper [KinoML](https://github.com/openkinome/kinoml/) installation. We recommend an installation via conda/mamba, e.g.:
+
+````
+mamba create -n kinoml --no-default-packages
+mamba env update -n kinoml -f https://raw.githubusercontent.com/openkinome/kinoml/master/devtools/conda-envs/test_env.yaml
+conda activate kinoml
+pip install https://github.com/openkinome/kinoml/archive/master.tar.gz
+````
+
+Clone this repository from GitHub:
+
+````
+git clone git@github.com:openkinome/experiments-binding-affinity.git
+cd experiments-binding-affinity
+```` 
+
+After installation you can directly run one of the provided examples. 
+
+````
+# run the featurization
+python run_notebook.py features/featurize-template.ipynb features/ligand-only-morgan1024-EGFR-subsample.py --overwrite
+
+# run the ML experiment
+python run_notebook.py experiments/torch-train-test-debug-template.ipynb experiments/001_example-ligand-only-morgan1024-EGFR-subset.py --overwrite
+```` 
+
+Featurizations and ML experiments are performed via jupyter notebooks, which will result in an informative and automated representation of the ML experiment. Each run will produce a new notebook, which will be stored in the `features` or `experiments` directory. After running the above lines you should find the following two notebooks:
+
+```
+# featurization
+features/ligand-only-morgan1024-EGFR-subsample/featurize.ipynb
+
+# ML experiment
+experiments/001_example-ligand-only-morgan1024-EGFR-subset/torch-train-test-debug.ipynb
+```
